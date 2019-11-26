@@ -74,7 +74,7 @@
 					</article>
 
 				</div> <!-- card.// --><br>
-				<p class="text-center" style="font-size: 12px;"> Sistema de Agendamento da Etec &copy 2019</p>
+				<p class="text-center" style="font-size: 12px;"> Sistema de Agendamentos da Etec &copy 2019</p>
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->
 

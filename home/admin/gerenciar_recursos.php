@@ -162,11 +162,11 @@
       // echo "</div>";
       echo '
     <li>';
-    if($num_rows_usuarios_pendentes > 0) {
-      echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
-    } else {
-    echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
-  }
+      if ($num_rows_usuarios_pendentes > 0) {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
+      } else {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
+      }
       echo '
     <ul class="d-menu" data-role="dropdown">
       <li>
@@ -178,7 +178,7 @@
       </li>
       <li class="divider"></li>
       <li><a href="cadastrar.php"><span class="mif-user-plus icon"></span> Cadastrar Usuários</a></li>';
-      if($num_rows_usuarios_pendentes > 0) {
+      if ($num_rows_usuarios_pendentes > 0) {
         echo '<li><a href="gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a></li>';
       } else {
         echo '<li><a href="gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários</a></li>';
@@ -195,14 +195,17 @@
   </div>
   <div class="container">
     <?php
-    echo "<div style=\"color: #fff; text-shadow: 2px 2px #000;padding-left: 20px;\"><h1>Gerenciamento de Recursos</h1></div>";
+    echo "<div style=\"color: #fff; text-shadow: 2px 2px #000;padding-left: 20px;\" class=\"row\"><div class=\"cell\"><h1>Gerenciamento de Recursos</h1></div>";
+    echo "<div class=\"cell\"><div class=\"float-right\" style=\"margin-top: 40px;\"><blockquote>Nota: Para desabilitar um recurso altere a <b>quantidade</b> para 0 (zero)</blockquote></div></div></div>";
     // echo "<h2>Gerênciamento de Recursos</h2>";
     $query = "SELECT * FROM `recurso`;";
     $result = mysqli_query($con, $query);
 
     echo "<table border='1' id='tableShadow'>
 <tr style='background-color: #d8dbe2';>
-<th>recId</th>
+<th data-role=\"hint\"
+data-hint-position=\"top\"
+data-hint-text=\"ID do recurso\">recId</th>
 <th>Nome</th>
 <th>Tipo de Recurso</th>
 <th>Quantidade</th>
@@ -218,7 +221,11 @@
       echo "<td>" . $row['recId'] . "</td>";
       echo "<td>" . $row['nome'] . "</td>";
       echo "<td>" . $row['tipo_recurso'] . "</td>";
-      echo "<td>" . $row['quantidade'] . "</td>";
+      if ($row['quantidade'] != '0') {
+        echo "<td>" . $row['quantidade'] . "</td>";
+      } else {
+        echo "<td><span class=\"button alert small rounded\">Indisponível</span></td>";
+      }
       echo "<td>" . $row['descricao'] . "</td>";
       echo "<td><a class=\"button secondary outline\" href=\"editar_recurso.php?recId=" . $row['recId'] . "\"><span class=\"mif-insert-template\"></span>  Editar</a></td>";
       // echo "<td><a class=\"button alert cycle outline\" href=\"excluir_recurso.php?recId=" . $row['recId'] . "\"><span class=\"mif-cross\"></span></a></td>";

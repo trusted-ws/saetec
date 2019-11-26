@@ -172,7 +172,7 @@
     <div>
       <?php
       echo "<div style=\"color: #fff; text-shadow: 2px 2px #000;padding-left: 20px;\"><h1>Agendar Recursos</h1></div>";
-      $query = "SELECT * FROM `recurso`;";
+      $query = "SELECT * FROM `recurso` WHERE `quantidade` <> 0;";
       $result = mysqli_query($con, $query);
 
       echo "<table border='8' class='table table-border cell-border row-hover' id='tableShadow'>

@@ -8,7 +8,13 @@
   <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
   <script href="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
+	<script src="redirection-mobile.js"></script>
+  <script>
+    SA.redirection_mobile({
+      mobile_url: "192.168.1.4/home/minhaconta_mobile.php", // Dominio de hospedagem
+      mobile_prefix: "https"
+    });
+  </script>
   <style>
     .color_blue {
       background-color: #d8dbe2;
@@ -105,6 +111,17 @@
         border-bottom: 0;
       }
     }
+
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-top: 25%;
+      opacity: 0.23;
+    }
   </style>
 
 </head>
@@ -139,11 +156,11 @@
       // echo "</div>";
       echo '
     <li>';
-    if($num_rows_usuarios_pendentes > 0) {
-      echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
-    } else {
-    echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
-  }
+      if ($num_rows_usuarios_pendentes > 0) {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
+      } else {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
+      }
       echo '
     <ul class="d-menu" data-role="dropdown">
       <li>
@@ -155,7 +172,7 @@
       </li>
       <li class="divider"></li>
       <li><a href="admin/cadastrar.php"><span class="mif-user-plus icon"></span> Cadastrar Usuários</a></li>';
-      if($num_rows_usuarios_pendentes > 0) {
+      if ($num_rows_usuarios_pendentes > 0) {
         echo '<li><a href="admin/gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a></li>';
       } else {
         echo '<li><a href="admin/gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários</a></li>';
@@ -270,9 +287,9 @@
                   Swal.fire({
                   title: 'Senha Alterada com Sucesso',
                   showConfirmButton: false,
-                  type: 'success',
+                  icon: 'success',
                   timer: 1500,
-                  onClose: () => { window.location.reload(); }
+                  //onClose: () => { window.location.reload(); }
                 });
                   </script>
                   ";
@@ -324,9 +341,9 @@
                 Swal.fire({
                   title: 'Nome Alterado com Sucesso',
                   showConfirmButton: false,
-                  type: 'success',
+                  icon: 'success',
                   timer: 1500,
-                  onClose: () => { window.location.reload(); }
+                  //onClose: () => { window.location.reload(); }
                 });
                 
                 </script>
@@ -343,6 +360,14 @@
         <br>
       </div>
     </div>
+  </div>
+  <div class="container">
+    <?php
+    if ($_SESSION['permissao'] == "1")
+      echo '<div class="shadow"><img class="logo" src="../admin.png" width="450"/></div>';
+    else
+      echo '<div class="shadow"><img class="logo" src="../noadmin.png" width="450"/></div>';
+    ?>
   </div>
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>

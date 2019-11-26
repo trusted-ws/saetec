@@ -272,7 +272,7 @@
         $query_nome_usuario = "SELECT `nome` FROM `usuarios` WHERE id = " . $row['usuario'] . ";";
         $query_nome_usuario_result = mysqli_query($con, $query_nome_usuario);
         $query_nome_usuario_row = mysqli_fetch_array($query_nome_usuario_result);
-        echo "<td>" . $query_nome_usuario_row['nome'] . "</td>";
+        echo "<td>" . $query_nome_usuario_row['nome'] . " <button class=\"button white mini rounded\"><b> ID: </b> " . $row['usuario'] . "</button></td>";
         //echo "<td><a class='button alert outline' href=\"/home/cancelar.php?id=" . $row['id'] . "\">CANCELAR</a></td>";
         echo "<td><a class=\"button alert cycle outline\" onclick=\"cancelarAgendamento(" . $row['id'] . ");\"><span class=\"mif-cross\"></span></a></td>";
         

@@ -23,6 +23,17 @@
       background-color: #d8dbe2;
 
     }
+
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      margin-top: 25%;
+      opacity: 0.23;
+    }
   </style>
 </head>
 
@@ -56,11 +67,11 @@
       // echo "</div>";
       echo '
     <li>';
-    if($num_rows_usuarios_pendentes > 0) {
-      echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
-    } else {
-    echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
-  }
+      if ($num_rows_usuarios_pendentes > 0) {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
+      } else {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
+      }
       echo '
     <ul class="d-menu" data-role="dropdown">
       <li>
@@ -72,7 +83,7 @@
       </li>
       <li class="divider"></li>
       <li><a href="cadastrar.php"><span class="mif-user-plus icon"></span> Cadastrar Usuários</a></li>';
-      if($num_rows_usuarios_pendentes > 0) {
+      if ($num_rows_usuarios_pendentes > 0) {
         echo '<li><a href="gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a></li>';
       } else {
         echo '<li><a href="gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários</a></li>';
@@ -130,6 +141,14 @@
       } else { }
       ?>
     </div>
+  </div>
+  <div class="container">
+    <?php
+    if ($_SESSION['permissao'] == "1")
+      echo '<div class="shadow"><img class="logo" src="../../admin.png" width="450"/></div>';
+    else
+      echo '<div class="shadow"><img class="logo" src="../../noadmin.png" width="450"/></div>';
+    ?>
   </div>
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>

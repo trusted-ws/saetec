@@ -19,7 +19,7 @@ $query_usuario = "SELECT * FROM `usuarios` WHERE `username` = '" . $login . "';"
 $result = mysqli_query($con, $query_usuario) or die("Erro no banco de dados!" . " [ " . mysqli_error($con) . " ] ");
 $total = mysqli_num_rows($result);
 if($total == 0) {
-    $query = "INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo` ) VALUES ( '" . $nome . "', '" . $login . "', '" . $senha . "', '" . $tipo . "', '1');";
+    $query = "INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente` ) VALUES ( '" . $nome . "', '" . $login . "', '" . $senha . "', '" . $tipo . "', '1', '0');";
     if(mysqli_query($con, $query) or die("Erro no banco de dados!" . " [ " . mysqli_error($con) . " ] ")) {
         header("location:cadastrar.php?c=nrcs");
         //echo $total;

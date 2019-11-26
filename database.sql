@@ -55,20 +55,24 @@ CONSTRAINT FK_RECURSO FOREIGN KEY(recId) REFERENCES recurso(RecId)
 
 -- ****** Testing Entries
 -- ************************************************ RECURSOS
-INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Projetor Sony VPL-HW45ES Full HD', 'Recurso / Aparelho', '1', 'Projetor Sony VPL-HW45ES Full HD');
-INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Mapa Mundi 200x200 4:4', 'Recurso / Aparelho', '1', 'Mapa Mundi - 200x200 4:4');
-INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Esqueleto Humano', 'Recurso / Aparelho', '1', 'Modelo anatomico de esqueleto humano de fibra de carbono');
+INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Projetor Sony', 'Recurso / Aparelho', '1', 'Projetor Sony VPL');
+INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Mapa Mundi', 'Recurso / Aparelho', '1', '4:4 200x200');
+INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Esqueleto Humano', 'Recurso / Aparelho', '1', 'Modelo Anatomico');
 INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Auditorio', 'Sala / Laboratorio', '1', 'Auditorio');
 INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Radio', 'Recurso / Aparelho', '1', 'Radio Sony VHX5ES');
 INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Caixa de Som', 'Recurso / Aparelho', '1', 'Caixa de Som Panasonic');
-INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Caixa de Som Bluetooth', 'Recurso / Aparelho', '1', 'Caixa de Som Bluetooth 3.1');
-INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Projetor Epson 2002', 'Recurso / Aparelho', '1', 'Projetor da Epson 2002 1080p HD');
+INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Caixa de Som Bluetooth', 'Recurso / Aparelho', '1', 'Bluetooth 3.1');
+INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Projetor Epson', 'Recurso / Aparelho', '1', 'Projetor Epson 2002');
 INSERT INTO `recurso` (`recId`, `nome`, `tipo_recurso`, `quantidade`, `descricao`) VALUES (NULL, 'Caixa de Som', 'Recurso / Aparelho', '1', 'Caixa de Som Panasonic');
 
 -- ****** Testing Entries
 -- ************************************************ USUÁRIOS
 INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', '1', '1', '0'); -- Administrator Account
+INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Test', 'test', MD5('test'), '2', '1', '0'); -- Test Account
+INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Teste', 'teste', MD5('teste'), '2', '1', '0'); -- Test Account
 INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Chapolin', 'ch@po.lin', MD5('chapolimcolorado'), '2', '1', '0'); -- Normal Account
+INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Teste 01', 'teste01@teste.com', MD5('123456789'), '2', '1', '0'); -- T1 Account
+INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Teste 02', 'teste02@teste.com', MD5('123456789'), '2', '1', '0'); -- T2 Account
 INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'betovem', 'betovem@deezer.com', MD5('betovem123123'), '2', '1', '1'); -- Pending Account
 INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( 'Karl Marx', 'karl@marx.com', MD5('capitalismo'), '2', '0', '0'); -- Deactivated Account
 

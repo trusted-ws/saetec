@@ -10,12 +10,6 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="redirection-mobile.js"></script>
-	<script>
-		SA.redirection_mobile({
-			mobile_url: "192.168.1.6/mobile",
-			mobile_prefix: "https"
-		});
-	</script>
 
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -74,7 +68,7 @@
 					</article>
 
 				</div> <!-- card.// --><br>
-				<p class="text-center" style="font-size: 12px;"> Sistema de Agendamento da Etec &copy 2019 </p>
+				<p class="text-center" style="font-size: 12px;"> Sistema de Agendamentos da Etec &copy 2019 </p>
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->
 

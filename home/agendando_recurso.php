@@ -132,7 +132,7 @@
                     //         h: 24
                     //     })]
                     // ],
-                    daysOfWeekDisabled: [0, 5],
+                    daysOfWeekDisabled: [0, 0],
                     showClear: true,
                     sideBySide: true,
                     stepping: 10
