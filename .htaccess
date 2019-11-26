@@ -1,1 +1,12 @@
 ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteBase /
+
+RewriteEngine On
+RewriteRule ^scheduling([^/]*)/([^/]*)\.html$ /home/agendando_recurso.php?recId=$1&resname=$2 [L]
+RewriteRule ^produto-([0-9]+)\.html$ produto.php?id=$1
+
+
