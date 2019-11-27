@@ -216,7 +216,7 @@
       $num_rows = mysqli_num_rows($result);
       
       echo '<div class="info-button">
-      <a href="#" data-role="popover" data-popover-text="Você possui ' . $num_rows . ' agendamentos neste momento." data-popover-position="bottom" data-popover-trigger="click" class="button"><span class="mif-calendar icon"></span> Agendamentos ativos</a>
+      <a href="#" data-role="popover" data-popover-text="Há ' . $num_rows . ' agendamento(s) neste momento." data-popover-position="bottom" data-popover-trigger="click" class="button"><span class="mif-calendar icon"></span> Agendamentos ativos</a>
       <a href="#" class="info">' . $num_rows . '</a>
   </div>
       ';
@@ -290,7 +290,7 @@
       $num_rows = mysqli_num_rows($result);
       
       echo '<div class="info-button">
-      <a href="#" class="button"><span class="mif-calendar icon"></span> Agendamentos ativos</a>
+      <a href="#" data-role="popover" data-popover-text="Você possui ' . $num_rows . ' agendamento(s) neste momento." data-popover-position="bottom" data-popover-trigger="click" class="button"><span class="mif-calendar icon"></span> Agendamentos ativos</a>
       <a href="#" class="info">' . $num_rows . '</a>
   </div>
       ';

@@ -14,6 +14,7 @@ if(isset($_GET['uid'])) {
     if($result = mysqli_query($con, $query)) {
         header('location: gerenciar.php');
     }
+
 }
 
 ?>
