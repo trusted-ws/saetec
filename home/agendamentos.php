@@ -22,11 +22,6 @@
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.value) {
-          // Swal.fire(
-          //   'Excluido!',
-          //   'Esse agendamento foi excluido',
-          //   'success'
-          // )
           location.href = "/home/cancelar.php?id=" + idAgendamento;
         }
       })
@@ -160,16 +155,6 @@
     $num_rows_usuarios_pendentes = mysqli_num_rows($result_usuarios_pendentes);
 
     if ($_SESSION["permissao"] == "1") {
-
-      // echo " <button class=\"dropbtn\">Admin";
-      // echo " <i class=\"fa fa-caret-down\"></i>";
-      // echo " </button>";
-      // echo "  <div class=\"dropdown-content\">";
-      // echo "  <a href=\"admin/incluir_objeto.php\">Incluir</a>";
-      // echo "  <a href=\"admin/gerenciar_recursos.php\">Gerenciar</a>";
-      // echo "  <a href=\"admin/cadastrar.php\">Cadastrar</a>";
-      // echo "  <a href=\"admin/gerenciar.php\">Usuários</a>";
-      // echo "</div>";
       echo '
     <li>';
     if($num_rows_usuarios_pendentes > 0) {
@@ -240,9 +225,6 @@
         $dataConverter = date("G:i", strtotime($row['reserva'])); // Converte o $dataComp para hora (Ex.: 15:40)
         $dataConverterAgora = date("G:i", strtotime($dataAgora)); // Converte a hora atual para formato (G:i) (Ex.: 21:10)
 
-        // echo "<h1 style=\"color:red;\">Convert: " . $dataConverter . "</h1><br>";
-        // echo "<h1 style=\"color:red;\">Agora: " . $dataConverterAgora . "</h1><br>";
-
         $dif = strtotime($dataComp) - strtotime($dataAgora);
         $dias = floor($dif / (60 * 60 * 24));
 
@@ -263,8 +245,6 @@
           }
         }
         
-        // --- --- ---
-
         echo "<tr>";
         
         echo "<td>" . $row['nome'] . "</td>";
@@ -273,7 +253,7 @@
         $query_nome_usuario_result = mysqli_query($con, $query_nome_usuario);
         $query_nome_usuario_row = mysqli_fetch_array($query_nome_usuario_result);
         echo "<td>" . $query_nome_usuario_row['nome'] . " <button class=\"button white mini rounded\"><b> ID: </b> " . $row['usuario'] . "</button></td>";
-        //echo "<td><a class='button alert outline' href=\"/home/cancelar.php?id=" . $row['id'] . "\">CANCELAR</a></td>";
+
         echo "<td><a class=\"button alert cycle outline\" onclick=\"cancelarAgendamento(" . $row['id'] . ");\"><span class=\"mif-cross\"></span></a></td>";
         
         echo "</tr>";
@@ -324,7 +304,6 @@
         echo "<tr>";
         echo "<td>" . $row['nome'] . "</td>";
         echo "<td>" . ucwords(strftime('%d de %B de %Y às %H:%M (%A)', strtotime($row['reserva']))) . "</td>";
-        //echo "<td><a class='button alert outline' href=\"/home/cancelar.php?id=" . $row['id'] . "\">CANCELAR</a></td>";
         echo "<td><a class=\"button alert cycle outline\" onclick=\"cancelarAgendamento(" . $row['id'] . ");\"><span class=\"mif-cross\"></span></a></td>";
         echo "</tr>";
       }

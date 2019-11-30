@@ -10,11 +10,6 @@
     $usuario = $_SESSION['id_usuario'];
     $nome = $_POST['nome'];
 
-    // echo $data . "<br>";
-    // echo $recId . "<br>";
-    // echo $nome . "<br>";
-    // echo $usuario;
-
     $query_verifica = "SELECT * FROM `reservas` WHERE `reserva` = '" . $data . "' AND `cancelado` = '0' AND `recId` = '" . $recId . "';";
 
     $result = mysqli_query($con, $query_verifica) or die("Erro no banco de dados!" . " [ " . mysqli_error($con) . " ] ");
@@ -27,7 +22,6 @@
             }
         }
     } else {
-        //echo "existe";
         header("location:agendando_recurso.php?c=raeitt");
     }
 

@@ -10,7 +10,6 @@
     $eNome = $_POST['eNome'];
     $eDescricao = $_POST['descricao'];
     $eTipo = $_POST['tiporecurso'];
-    //$eQuantidade = (int)$_POST['quantidade'];
     $eQuantidade = (is_numeric((int) $_POST['eQuantidade']) ? (int) $_POST['eQuantidade'] : 0);
     $recId = $_POST['recId'];
 

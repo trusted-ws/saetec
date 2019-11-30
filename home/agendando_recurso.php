@@ -2,15 +2,13 @@
 
 <head>
     <title>Agendar</title>
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
-    <!-- <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
     <script type="text/javascript" src="/bower_components/bootstrap3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" /> -->
+
     <link rel="stylesheet" href="/bower_components/bootstrap3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <meta charset="utf-8">
@@ -37,7 +35,6 @@
             $query = "SELECT * FROM `reservas` WHERE recId = '$recId' AND `cancelado` = '0';";
             $result = mysqli_query($con, $query);
 
-            // Here
             $dataAgora = date('m/d/Y h:i A');
             echo "<h4 class=\"display-4\" style=\"color: gray;\">Você está agendando um(a)<h3 class=\"text-muted\" style=\"color:#4f000e;padding-left:15px;\">" . $nome . "</h3></h4><br><br>";
 
@@ -47,17 +44,14 @@
                 $dataConverter = date("G:i", strtotime($row['reserva'])); // Converte o $dataComp para hora (Ex.: 15:40)
                 $dataConverterAgora = date("G:i", strtotime($dataAgora)); // Converte a hora atual para formato (G:i) (Ex.: 21:10)
 
-                // echo "<h1 style=\"color:red;\">Convert: " . $dataConverter . "</h1><br>";
-                // echo "<h1 style=\"color:red;\">Agora: " . $dataConverterAgora . "</h1><br>";
-
                 $dif = strtotime($dataComp) - strtotime($dataAgora);
                 $dias = floor($dif / (60 * 60 * 24));
 
                 // Verifica se o dia do agendamento já aconteceu, se sim o evento é cancelado.
 
                 $excluirEvento = false;
-                if($dias == 0) {
-                    if($dataConverterAgora > $dataConverter) {
+                if ($dias == 0) {
+                    if ($dataConverterAgora > $dataConverter) {
                         $excluirEvento = true;
                     }
                 }
@@ -120,18 +114,6 @@
         <script type="text/javascript">
             $(function() {
                 $('#datetimepicker11').datetimepicker({
-                    // disabledTimeIntervals: [
-                    //     [moment({
-                    //         h: 0
-                    //     }), moment({
-                    //         h: 7
-                    //     })],
-                    //     [moment({
-                    //         h: 18
-                    //     }), moment({
-                    //         h: 24
-                    //     })]
-                    // ],
                     daysOfWeekDisabled: [0, 0],
                     showClear: true,
                     sideBySide: true,

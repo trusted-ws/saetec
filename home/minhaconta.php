@@ -144,16 +144,6 @@
     $num_rows_usuarios_pendentes = mysqli_num_rows($result_usuarios_pendentes);
 
     if ($_SESSION["permissao"] == "1") {
-
-      // echo " <button class=\"dropbtn\">Admin";
-      // echo " <i class=\"fa fa-caret-down\"></i>";
-      // echo " </button>";
-      // echo "  <div class=\"dropdown-content\">";
-      // echo "  <a href=\"admin/incluir_objeto.php\">Incluir</a>";
-      // echo "  <a href=\"admin/gerenciar_recursos.php\">Gerenciar</a>";
-      // echo "  <a href=\"admin/cadastrar.php\">Cadastrar</a>";
-      // echo "  <a href=\"admin/gerenciar.php\">Usuários</a>";
-      // echo "</div>";
       echo '
     <li>';
       if ($num_rows_usuarios_pendentes > 0) {

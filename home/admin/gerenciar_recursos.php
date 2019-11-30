@@ -23,12 +23,6 @@
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.value) {
-          //   Swal.fire({
-          //   // showComfirmButton: false,
-          //   // title: 'Esse recurso foi excluido',
-          //   // icon: 'success',
-          //   // timer: 1500
-          // })
           location.href = "excluir_recurso.php?recId=" + idRecurso;
         }
       })
@@ -150,16 +144,6 @@
     $num_rows_usuarios_pendentes = mysqli_num_rows($result_usuarios_pendentes);
 
     if ($_SESSION["permissao"] == "1") {
-
-      // echo " <button class=\"dropbtn\">Admin";
-      // echo " <i class=\"fa fa-caret-down\"></i>";
-      // echo " </button>";
-      // echo "  <div class=\"dropdown-content\">";
-      // echo "  <a href=\"admin/incluir_objeto.php\">Incluir</a>";
-      // echo "  <a href=\"admin/gerenciar_recursos.php\">Gerenciar</a>";
-      // echo "  <a href=\"admin/cadastrar.php\">Cadastrar</a>";
-      // echo "  <a href=\"admin/gerenciar.php\">Usuários</a>";
-      // echo "</div>";
       echo '
     <li>';
       if ($num_rows_usuarios_pendentes > 0) {
@@ -197,7 +181,6 @@
     <?php
     echo "<div style=\"color: #fff; text-shadow: 2px 2px #000;padding-left: 20px;\" class=\"row\"><div class=\"cell\"><h1>Gerenciamento de Recursos</h1></div>";
     echo "<div class=\"cell\"><div class=\"float-right\" style=\"margin-top: 40px;\"><blockquote>Nota: Para desabilitar um recurso altere a <b>quantidade</b> para 0 (zero)</blockquote></div></div></div>";
-    // echo "<h2>Gerênciamento de Recursos</h2>";
     $query = "SELECT * FROM `recurso`;";
     $result = mysqli_query($con, $query);
 

@@ -63,16 +63,6 @@
     $num_rows_usuarios_pendentes = mysqli_num_rows($result_usuarios_pendentes);
 
     if ($_SESSION["permissao"] == "1") {
-
-      // echo " <button class=\"dropbtn\">Admin";
-      // echo " <i class=\"fa fa-caret-down\"></i>";
-      // echo " </button>";
-      // echo "  <div class=\"dropdown-content\">";
-      // echo "  <a href=\"admin/incluir_objeto.php\">Incluir</a>";
-      // echo "  <a href=\"admin/gerenciar_recursos.php\">Gerenciar</a>";
-      // echo "  <a href=\"admin/cadastrar.php\">Cadastrar</a>";
-      // echo "  <a href=\"admin/gerenciar.php\">Usuários</a>";
-      // echo "</div>";
       echo '
     <li>';
       if ($num_rows_usuarios_pendentes > 0) {
@@ -117,16 +107,6 @@
     ';
   }
   ?>
-
-  <!-- <div data-role="carousel" data-cls-controls="fg-cyan" data-effect="slide" data-controls="false" data-bullets="false" data-auto-start="true" data-effect-func="easeInQuart">
-    <div class="slide" data-cover="../images/1.jpg" data-period="5000"></div>
-    <div class="slide" data-cover="../images/2.jpg" data-period="5000"></div>
-    <div class="slide" data-cover="../images/3.jpg" data-period="5000"></div>
-    <div class="slide" data-cover="../images/4.jpg" data-period="5000"></div>
-    <div class="slide" data-cover="../images/5.jpg" data-period="5000"></div>
-    <div class="slide" data-cover="../images/6.jpg" data-period="5000"></div>
-  </div> -->
-
   <div class="container">
     <?php
     if ($_SESSION['permissao'] == "1")

@@ -3,9 +3,8 @@ require('includes/conn.php');
 
 session_start();
 
-// $login = $_POST['username'];
+
 $login = isset($_POST["username"]) ? addslashes(trim($_POST["username"])) : FALSE;
-// $senha = md5($_POST['password']);
 $senha = isset($_POST["password"]) ? md5(trim($_POST["password"])) : FALSE; 
 
 if(!$login || !$senha) 
@@ -49,19 +48,5 @@ if($total) {
     header('location:index.php?c=uopww');
     // exit;
 }
-
-
-
-// if(mysqli_num_rows($result) > 0)
-// {
-//     $_SESSION['login'] = $login;
-//     $_SESSION['senha'] = $senha;
-//     header('location:/home/index.php');
-// } else {
-//     unset ($_SESSION['login']);
-//     unset ($_SESSION['senha']);
-//     header('location:index.php?c=uopww');
-// }
-
 
 ?>

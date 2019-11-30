@@ -29,9 +29,6 @@
     <div class="container">
         <div class="text-center ex2">
             <h1 style="color: #fff;">Seu cadastro foi enviado ao Administrador</h1>
-            <!-- <div class="remark alert">
-                <b>Aguarde a confirmação do Administrador para poder utilizar o Saetec.</b>
-            </div> -->
             <h4 class="fg-white"> Sua solicitação de cadastro foi registrada. Aguarde aprovação do Administrador. </h4><br>
             <button class="button light outline large" onclick="location.href = '../index.php';">Acessar Sistema</button>
         </div>
