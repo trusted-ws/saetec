@@ -101,6 +101,23 @@
       padding: 10px;
       box-shadow: 1px 3px 10px black;
     }
+
+    .footer {
+      position: absolute;
+      right: 0;
+      bottom: 1;
+      left: 0;
+      padding: 1rem;
+      color: #efefef;
+      text-align: center;
+      margin-top: 20px;
+      /* padding-bottom: 50%; */
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
   </style>
 
 </head>
@@ -125,11 +142,11 @@
     if ($_SESSION["permissao"] == "1") {
       echo '
     <li>';
-    if($num_rows_usuarios_pendentes > 0) {
-      echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
-    } else {
-    echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
-  }
+      if ($num_rows_usuarios_pendentes > 0) {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
+      } else {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
+      }
       echo '
     <ul class="d-menu" data-role="dropdown">
       <li>
@@ -141,7 +158,7 @@
       </li>
       <li class="divider"></li>
       <li><a href="admin/cadastrar.php"><span class="mif-user-plus icon"></span> Cadastrar Usuários</a></li>';
-      if($num_rows_usuarios_pendentes > 0) {
+      if ($num_rows_usuarios_pendentes > 0) {
         echo '<li><a href="admin/gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a></li>';
       } else {
         echo '<li><a href="admin/gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários</a></li>';
@@ -164,6 +181,7 @@
       echo "<div style=\"color: #fff; text-shadow: 2px 2px #000;padding-left: 20px;\"><h1>Agendar Recursos</h1></div>";
       $query = "SELECT * FROM `recurso` WHERE `quantidade` <> 0;";
       $result = mysqli_query($con, $query);
+      $num_rows = mysqli_num_rows($result);
 
       echo "<table border='8' class='table table-border cell-border row-hover' id='tableShadow'>
 <tr style='background-color: #d8dbe2';>
@@ -185,9 +203,30 @@
         echo "</tr>";
       }
       echo "</table>";
+      if ($num_rows < 1) {
+        echo '<br><div class="fg-white" id="tableShadow">';
+        if ($_SESSION['permissao'] == 1) {
+          echo '<p class="p-15 text-center">Não há nenhum item cadastrado no sistema. <br><a href="admin/incluir_objeto.php">Cadastre um recurso agora!</a></p>';
+        } else {
+          echo '<p class="p-15 text-center">Não há nenhum item cadastrado no momento.</p>';
+        }
+        echo '</div>';
+      }
       ?>
+
     </div>
   </div>
+
+  <?php
+  // Administrador: 91f5167c34c400758115c2a6826ec2e3.pdf
+  // Normal: f8032d5cae3de20fcec887f395ec9a6a.pdf
+  if ($_SESSION["permissao"] == "1") {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/91f5167c34c400758115c2a6826ec2e3.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  } else {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/f8032d5cae3de20fcec887f395ec9a6a.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  }
+  ?>
+
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
 

@@ -122,6 +122,23 @@
       padding: 10px;
       box-shadow: 1px 3px 10px black;
     }
+
+    .footer {
+      position: absolute;
+      right: 0;
+      bottom: 1;
+      left: 0;
+      padding: 1rem;
+      color: #efefef;
+      text-align: center;
+      margin-top: 20px;
+      /* padding-bottom: 50%; */
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
   </style>
 
 </head>
@@ -183,6 +200,7 @@
     echo "<div class=\"cell\"><div class=\"float-right\" style=\"margin-top: 40px;\"><blockquote>Nota: Para desabilitar um recurso altere a <b>quantidade</b> para 0 (zero)</blockquote></div></div></div>";
     $query = "SELECT * FROM `recurso`;";
     $result = mysqli_query($con, $query);
+    $num_rows = mysqli_num_rows($result);
 
     echo "<table border='1' id='tableShadow'>
 <tr style='background-color: #d8dbe2';>
@@ -218,10 +236,31 @@ data-hint-text=\"ID do recurso\">recId</th>
     }
     echo "</table>";
 
+    if ($num_rows < 1) {
+      echo '<br><div class="fg-white" id="tableShadow">';
+      if ($_SESSION['permissao'] == 1) {
+        echo '<p class="p-15 text-center">Não há nenhum item cadastrado aqui. <br><a href="incluir_objeto.php">Cadastre um recurso agora!</a></p>';
+      } else {
+        echo '<p class="p-15 text-center">Não há nenhum item cadastrado no momento.</p>';
+      }
+      echo '</div>';
+    }
+
     mysqli_close($con);
 
     ?>
   </div>
+
+  <?php
+  // Administrador: 91f5167c34c400758115c2a6826ec2e3.pdf
+  // Normal: f8032d5cae3de20fcec887f395ec9a6a.pdf
+  if ($_SESSION["permissao"] == "1") {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/91f5167c34c400758115c2a6826ec2e3.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  } else {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/f8032d5cae3de20fcec887f395ec9a6a.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  }
+  ?>
+
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
 

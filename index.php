@@ -69,6 +69,7 @@
 
 				</div> <!-- card.// --><br>
 				<p class="text-center" style="font-size: 12px;"> Sistema de Agendamentos da Etec &copy 2019 </p>
+				<p class="text-center" style="font-size: 12px; color: #757575;"> Desenvolvido por Murilo Augusto, Igor Gabriel e Luiz Gustavo <br><span style="color: #363b59">E-mail para contato: </span> <a href="mailto:eth0.db0@gmail.com">eth0.db0@gmail.com</a></p>
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->
 

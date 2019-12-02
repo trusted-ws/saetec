@@ -4,15 +4,14 @@
     <title>Agendar</title>
 
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+    <!-- <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/pt-br.js"></script>
 
     <script type="text/javascript" src="/bower_components/bootstrap3/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
     <link rel="stylesheet" href="/bower_components/bootstrap3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-
-
     <meta charset="utf-8">
 </head>
 
@@ -42,33 +41,18 @@
 
             while ($row = mysqli_fetch_array($result)) {
 
-                $idusuario = $row['usuario'];
-                $query_usuario = "SELECT `nome` FROM `usuarios` WHERE id = '$idusuario';";
-                $result_usuario = mysqli_query($con, $query_usuario);
-                $row_usuario = mysqli_fetch_array($result_usuario);
-                $usuario = $row_usuario['nome'];
-
                 $dataComp = $row['reserva']; // Retorna o valor do campo reserva (Ex.: 11/06/2019 3:40 PM)
-                $dataComp = date("m/d/Y h:i A", strtotime($dataComp)); // Converte o valor m/d/Y para d/m/Y
                 $dataConverter = date("G:i", strtotime($row['reserva'])); // Converte o $dataComp para hora (Ex.: 15:40)
-                $horaFinal = strtotime($dataConverter);
-                $horaFinal = date("H:i", strtotime('+50 minutes', $horaFinal)); // Adiciona 50 minutos ao horario de agendamento.
                 $dataConverterAgora = date("G:i", strtotime($dataAgora)); // Converte a hora atual para formato (G:i) (Ex.: 21:10)
-                
-                $dataHoje = date("d/m/Y", strtotime($dataAgora));
 
                 $dif = strtotime($dataComp) - strtotime($dataAgora);
-
-                // echo "<p style='color: yellow; background-color: blue; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;'>datacomp: " . $dataComp . "";
-                // echo "<br>dataagora: " . $dataAgora . "</p>";
-
-                $dias = floor($dif / (60 * 60 * 24) + 1);
+                $dias = floor($dif / (60 * 60 * 24));
 
                 // Verifica se o dia do agendamento já aconteceu, se sim o evento é cancelado.
 
                 $excluirEvento = false;
                 if ($dias == 0) {
-                    if ($dataConverterAgora > $horaFinal) {
+                    if ($dataConverterAgora > $dataConverter) {
                         $excluirEvento = true;
                     }
                 }
@@ -84,10 +68,7 @@
                     echo "<span style=\"padding-left:8px;color:gray;\">Faltam " . $dias . " dia(s) para este evento acontecer.</span>";
 
                     echo "<ul class=\"list-group\">";
-                    $a = explode(" ", $dataComp);
-                    $dataAmostra = strtotime($a[0]);
-                    $dataAmostra = date('d/m/Y', $dataAmostra);
-                    echo "<li class=\"list-group-item\" style=\"background-color: #D8DBE2 \"> Este recurso foi reservado também para o dia <b>" . $dataAmostra . " das $dataConverter até $horaFinal</b> por <span style=\"color: #58A4B0; font-size: 16;\">$usuario</span></li>";
+                    echo "<li class=\"list-group-item\"> Este recurso foi reservado também para o dia <b>" . $row['reserva'] . "</b></li>";
                     echo "</ul>";
                 }
             }
@@ -106,9 +87,9 @@
         }
         ?>
         <hr>
-        <!-- <p>https://timepicker.co/</p>
+        <p>https://timepicker.co/</p>
         <p>https://fullcalendar.io/</p>
-        <p>https://stackoverflow.com/questions/20557059/php-adding-15-minutes-to-time-value</p> -->
+        <p>https://stackoverflow.com/questions/20557059/php-adding-15-minutes-to-time-value</p>
         <div class="col-sm-6" style="height:130px;">
             <form action="agendado.php" method="post">
                 <div class="form-group">
@@ -119,23 +100,24 @@
                             </span>
                         </span>
                     </div>
-                    <br>
+                    <!-- timepicker -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="horario" class="form-control selectpicker" id="combobox">
+                        <select name="horario" class="form-control selectpicker">
                             <option value=" ">Selecione um horário</option>
-                            <option value="7:10 AM">7:10</option>
-                            <option value="8:00 AM">8:00</option>
-                            <option value="8:50 AM">8:50</option>
-                            <option value="9:40 AM">9:40</option>
-                            <option value="10:00 AM">10:00</option>
-                            <option value="10:50 AM">10:50</option>
-                            <option value="11:40 AM">11:40</option>
-                            <option value="1:00 PM">13:00</option>
-                            <option value="1:50 PM">13:50</option>
-                            <option value="2:40 PM">14:40</option>
-                            <option value="3:30 PM">15:30</option>
-                            <option value="4:20 PM">16:20</option>
+                            <option>7:10</option>
+                            <option>8:00</option>
+                            <option>8:50</option>
+                            <option>9:40</option>
+                            <option>10:00</option>
+                            <option>10:50</option>
+                            <option>11:40</option>
+                            <option>13:00</option>
+                            <option>13:50</option>
+                            <option>14:40</option>
+                            <option>15:30</option>
+
+
                         </select>
                     </div>
                 </div>
@@ -147,7 +129,7 @@
                 if ($buttonState == '0') {
                     echo '<input class="btn btn-primary" type="submit" value="Agendar" disabled>';
                 } else {
-                    echo '<input class="btn btn-primary" type="submit" value="Agendar" id="submit" disabled>';
+                    echo '<input class="btn btn-primary" type="submit" value="Agendar">';
                 }
                 ?>
                 <a class="btn btn-primary" href="agendar_objeto.php">Voltar</a>
@@ -156,27 +138,12 @@
         <script type="text/javascript">
             $(function() {
                 $('#datetimepicker11').datetimepicker({
+                    locale: moment.locale('pt-br'),
                     daysOfWeekDisabled: [0, 0],
                     showClear: true,
-                    sideBySide: true,                    
-                    //stepping: 10,
-                    format: 'MM/DD/YYYY',
-                    locale: 'pt-br'
+                    sideBySide: true,
+                    stepping: 10
                 });
-            });
-            $(document).ready(function() {
-                // $('#combobox').val("0");
-
-                $('#combobox').change(function() {
-                    selectVal = $('#combobox').val();
-
-                    if (selectVal == 0) {
-                        $('#submit').prop("disabled", true);
-                    } else {
-                        $('#submit').prop("disabled", false);
-                    }
-                })
-
             });
         </script>
     </div>

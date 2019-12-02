@@ -40,6 +40,13 @@
     body {
       background: rgb(169, 188, 208);
       background: linear-gradient(353deg, rgba(169, 188, 208, 1) 0%, rgba(169, 188, 208, 1) 16%, rgba(88, 164, 176, 1) 100%);
+      /* margin: 0 0 60px; altura do seu footer */
+    }
+
+    html {
+      position: relative;
+      min-height: 100%;
+      
     }
 
     table {
@@ -129,6 +136,23 @@
       padding: 10px;
       box-shadow: 1px 3px 10px black;
     }
+
+    .footer {
+      position: absolute;
+      right: 0;
+      bottom: 1;
+      left: 0;
+      padding: 1rem;
+      color: #efefef;
+      text-align: center;
+      margin-top: 20px;
+      /* padding-bottom: 50%; */
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
   </style>
 
 </head>
@@ -157,11 +181,11 @@
     if ($_SESSION["permissao"] == "1") {
       echo '
     <li>';
-    if($num_rows_usuarios_pendentes > 0) {
-      echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
-    } else {
-    echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
-  }
+      if ($num_rows_usuarios_pendentes > 0) {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a>';
+      } else {
+        echo '<a href="#" class="dropdown-toggle"><span class="mif-command icon"></span> Gerênciar</a>';
+      }
       echo '
     <ul class="d-menu" data-role="dropdown">
       <li>
@@ -173,7 +197,7 @@
       </li>
       <li class="divider"></li>
       <li><a href="admin/cadastrar.php"><span class="mif-user-plus icon"></span> Cadastrar Usuários</a></li>';
-      if($num_rows_usuarios_pendentes > 0) {
+      if ($num_rows_usuarios_pendentes > 0) {
         echo '<li><a href="admin/gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários <span class="badge inline bg-cyan fg-white">' . $num_rows_usuarios_pendentes . '</span></a></li>';
       } else {
         echo '<li><a href="admin/gerenciar.php"><span class="mif-users icon"></span> Gerênciar Usuários</a></li>';
@@ -199,7 +223,7 @@
 
       $result = mysqli_query($con, $query);
       $num_rows = mysqli_num_rows($result);
-      
+
       echo '<div class="info-button">
       <a href="#" data-role="popover" data-popover-text="Há ' . $num_rows . ' agendamento(s) neste momento." data-popover-position="bottom" data-popover-trigger="click" class="button"><span class="mif-calendar icon"></span> Agendamentos ativos</a>
       <a href="#" class="info">' . $num_rows . '</a>
@@ -222,17 +246,26 @@
         // Verifica se agendamento existe
 
         $dataComp = $row['reserva']; // Retorna o valor do campo reserva (Ex.: 11/06/2019 3:40 PM)
+        $dataComp = date("m/d/Y h:i A", strtotime($dataComp)); // Converte o valor m/d/Y para d/m/Y
         $dataConverter = date("G:i", strtotime($row['reserva'])); // Converte o $dataComp para hora (Ex.: 15:40)
+        $horaFinal = strtotime($dataConverter);
+        $horaFinal = date("H:i", strtotime('+50 minutes', $horaFinal)); // Adiciona 50 minutos ao horario de agendamento.
         $dataConverterAgora = date("G:i", strtotime($dataAgora)); // Converte a hora atual para formato (G:i) (Ex.: 21:10)
 
+        $dataHoje = date("d/m/Y", strtotime($dataAgora));
+
         $dif = strtotime($dataComp) - strtotime($dataAgora);
-        $dias = floor($dif / (60 * 60 * 24));
+
+        // echo "<p style='color: yellow; background-color: blue; padding-left: 30px; padding-top: 10px; padding-bottom: 10px;'>datacomp: " . $dataComp . "";
+        // echo "<br>dataagora: " . $dataAgora . "</p>";
+
+        $dias = floor($dif / (60 * 60 * 24) + 1);
 
         // Verifica se o dia do agendamento já aconteceu, se sim o evento é cancelado.
 
         $excluirEvento = false;
         if ($dias == 0) {
-          if ($dataConverterAgora > $dataConverter) {
+          if ($dataConverterAgora > $horaFinal) {
             $excluirEvento = true;
           }
         }
@@ -244,9 +277,9 @@
             echo "erro";
           }
         }
-        
+
         echo "<tr>";
-        
+
         echo "<td>" . $row['nome'] . "</td>";
         echo "<td>" . ucwords(strftime('%d de %B de %Y às %H:%M (%A)', strtotime($row['reserva']))) . "</td>";
         $query_nome_usuario = "SELECT `nome` FROM `usuarios` WHERE id = " . $row['usuario'] . ";";
@@ -255,7 +288,7 @@
         echo "<td>" . $query_nome_usuario_row['nome'] . " <button class=\"button white mini rounded\"><b> ID: </b> " . $row['usuario'] . "</button></td>";
 
         echo "<td><a class=\"button alert cycle outline\" onclick=\"cancelarAgendamento(" . $row['id'] . ");\"><span class=\"mif-cross\"></span></a></td>";
-        
+
         echo "</tr>";
       }
       echo "</table>";
@@ -268,7 +301,7 @@
       $query = "SELECT * FROM `reservas` where `usuario` = '$myId' AND `cancelado` = 0;";
       $result = mysqli_query($con, $query);
       $num_rows = mysqli_num_rows($result);
-      
+
       echo '<div class="info-button">
       <a href="#" data-role="popover" data-popover-text="Você possui ' . $num_rows . ' agendamento(s) neste momento." data-popover-position="bottom" data-popover-trigger="click" class="button"><span class="mif-calendar icon"></span> Agendamentos ativos</a>
       <a href="#" class="info">' . $num_rows . '</a>
@@ -318,6 +351,17 @@
     mysqli_close($con);
     ?>
   </div>
+  <div class="cor"></div>
+
+  <?php
+  // Administrador: 91f5167c34c400758115c2a6826ec2e3.pdf
+  // Normal: f8032d5cae3de20fcec887f395ec9a6a.pdf
+  if ($_SESSION["permissao"] == "1") {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/91f5167c34c400758115c2a6826ec2e3.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  } else {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/f8032d5cae3de20fcec887f395ec9a6a.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  }
+  ?>
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
 

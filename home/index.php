@@ -25,6 +25,23 @@
       margin-top: 25%;
       opacity: 0.23;
     }
+
+    .footer {
+      position: absolute;
+      right: 0;
+      bottom: 1;
+      left: 0;
+      padding: 1rem;
+      color: #efefef;
+      text-align: center;
+      margin-top: 20px;
+      /* padding-bottom: 50%; */
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -46,7 +63,7 @@
       })
     }
   </script>
-  
+
   <ul class="h-menu">
     <li><a href="index.php"><span class="mif-home icon"></span> Saetec</a></li>
     <li><a href="agendar_objeto.php"><span class="mif-calendar icon"></span> Agendar</a></li>
@@ -115,6 +132,16 @@
       echo '<div class="shadow"><img class="logo" src="../noadmin.png" width="450"/></div>';
     ?>
   </div>
+
+  <?php
+  // Administrador: 91f5167c34c400758115c2a6826ec2e3.pdf
+  // Normal: f8032d5cae3de20fcec887f395ec9a6a.pdf
+  if ($_SESSION["permissao"] == "1") {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/91f5167c34c400758115c2a6826ec2e3.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  } else {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/f8032d5cae3de20fcec887f395ec9a6a.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  }
+  ?>
 
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>

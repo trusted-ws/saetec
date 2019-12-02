@@ -34,6 +34,21 @@
       margin-top: 25%;
       opacity: 0.23;
     }
+
+    .footer {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -138,6 +153,17 @@
       echo '<div class="shadow"><img class="logo" src="../../noadmin.png" width="450"/></div>';
     ?>
   </div>
+
+  <?php
+  // Administrador: 91f5167c34c400758115c2a6826ec2e3.pdf
+  // Normal: f8032d5cae3de20fcec887f395ec9a6a.pdf
+  if ($_SESSION["permissao"] == "1") {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/91f5167c34c400758115c2a6826ec2e3.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  } else {
+    echo '<div class="footer">Precisa de ajuda? <a href="/tutorial/f8032d5cae3de20fcec887f395ec9a6a.pdf" target="_blank">Este tutorial pode te ajudar!</a> <br><span style="font-size: 12px;">Sistema de Agendamentos da Etec &copy 2019</span></div>';
+  }
+  ?>
+
   <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 </body>
 
