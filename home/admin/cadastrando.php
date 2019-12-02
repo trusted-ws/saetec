@@ -9,6 +9,11 @@ $senha = isset($_POST["password"]) ? md5(trim($_POST["password"])) : FALSE;
 $nome = isset($_POST["nome"]) ? addslashes(trim($_POST["nome"])) : FALSE; 
 $tipo = isset($_POST["tipoconta"]) ? addslashes(trim($_POST["tipoconta"])) : FALSE; 
 
+if(!($login || $senha || $nome || $tipo)) {
+    header("Location: ../index.php");
+    exit;
+}
+
 $query_usuario = "SELECT * FROM `usuarios` WHERE `username` = '" . $login . "';";
 
 $result = mysqli_query($con, $query_usuario) or die("Erro no banco de dados!" . " [ " . mysqli_error($con) . " ] ");
