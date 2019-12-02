@@ -30,6 +30,8 @@
 						<hr>
 						<p class="text-success text-center">
 							<h4 class="text-center" id="Blinker-font">Criar Conta</h4>
+
+						</p>
 						</p>
 						<form action="" method="post">
 							<div class="form-group">
@@ -64,6 +66,9 @@
 										</div>
 										<input name="password_confirm" class="form-control" placeholder="Repita a Senha" minlength="8" type="password" required>
 									</div> <!-- input-group.// -->
+									<center>
+										<br><span style="color: #a1a1a1;">Para efetivar seu cadastro é necessária aprovação do Administrador.</span><br>
+									</center>
 								</div> <!-- form-group// -->
 								<div class="form-group">
 									<button type="submit" class="btn btn-primary btn-block"> Registrar </button>
