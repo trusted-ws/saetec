@@ -64,6 +64,8 @@
     require('../../includes/conn.php');
     // Verificador de Sessão
     require('../../includes/verifica.php');
+    // Verificador de Permissão
+    require('../../includes/admin.php');
 
     $query_usuarios_pendentes = "SELECT * FROM `usuarios` where `pendente` = 1;";
     $result_usuarios_pendentes = mysqli_query($con, $query_usuarios_pendentes);
