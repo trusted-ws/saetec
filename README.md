@@ -1,10 +1,10 @@
 <p align="center">
   <img src="https://i.imgur.com/LFHBEun.png">
-  Sistema de Agendamentos da Etec
 </p>
 <br />
 
-
+## Sistema de Agendamentos da Etec (Saetec)
+O Sistema de Agendamentos da Etec (Saetec) foi desenvolvido para facilitar o agendamento de um recurso por parte do corpo docente.
 ## TCC
 > Projeto componente de Trabalho de Conclusão de Curso (TCC) pela Etec Sylvio de Mattos Carvalho - Informática para Internet
 ## Nota de Instalação
