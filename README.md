@@ -1,9 +1,8 @@
-```html
 <p align="center">
   <img src="https://i.imgur.com/LFHBEun.png">
 </p>
 <br />
-```
+
 Sistema de Agendamentos da Etec ***(Saetec)***
 ## TCC
 > Projeto componente de Trabalho de Conclusão de Curso (TCC) pela Etec Sylvio de Mattos Carvalho - Informática para Internet
@@ -11,7 +10,7 @@ Sistema de Agendamentos da Etec ***(Saetec)***
 Após a mover os arquivos necessários para a raíz do servidor, certifique-se que:
 - O módulo rewrite está **devidamente habilitado** ou **descomentado** 
 > ***Arquivo:*** httpd.conf <br />
- `$ LoadModule rewrite_module modules/mod_rewrite.so`
+ `LoadModule rewrite_module modules/mod_rewrite.so`
 ## GitHub Project
 Este projeto se encontra no [GitHub](https://github.com/trusted-ws/saetec)
 ###### Projeto realizado por
