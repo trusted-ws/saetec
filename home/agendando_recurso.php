@@ -106,9 +106,6 @@
         }
         ?>
         <hr>
-        <!-- <p>https://timepicker.co/</p>
-        <p>https://fullcalendar.io/</p>
-        <p>https://stackoverflow.com/questions/20557059/php-adding-15-minutes-to-time-value</p> -->
         <div class="col-sm-6" style="height:130px;">
             <form action="agendado.php" method="post">
                 <div class="form-group">
@@ -136,6 +133,12 @@
                             <option value="2:40 PM">14:40</option>
                             <option value="3:30 PM">15:30</option>
                             <option value="4:20 PM">16:20</option>
+                            <option value="5:10 PM">17:10</option>
+                            <option value="7:00 PM">19:00</option>
+                            <option value="7:50 PM">19:50</option>
+                            <option value="8:40 PM">20:40</option>
+                            <option value="9:30 PM">21:30</option>
+                            <option value="10:20 PM">22:20</option>
                         </select>
                     </div>
                 </div>
