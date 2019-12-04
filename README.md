@@ -1,9 +1,10 @@
 <p align="center">
   <img src="https://i.imgur.com/LFHBEun.png">
+  <h1> Sistema de Agendamentos da Etec</h1>
 </p>
 <br />
 
-Sistema de Agendamentos da Etec ***(Saetec)***
+
 ## TCC
 > Projeto componente de Trabalho de Conclusão de Curso (TCC) pela Etec Sylvio de Mattos Carvalho - Informática para Internet
 ## Nota de Instalação
