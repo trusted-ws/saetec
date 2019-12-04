@@ -6,7 +6,7 @@ Sistema de Agendamentos da Etec ***(Saetec)***
 ## Nota de Instalação
 Após a mover os arquivos necessários para a raíz do servidor, certifique-se que:
 - O módulo rewrite está **devidamente habilitado** ou **descomentado** 
-> ***Arquivo:***: httpd.conf
+> ***Arquivo:*** httpd.conf <br />
  `$ LoadModule rewrite_module modules/mod_rewrite.so`
 ## GitHub Project
 Este projeto se encontra no [GitHub](https://github.com/trusted-ws/saetec)
