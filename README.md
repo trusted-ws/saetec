@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://i.imgur.com/LFHBEun.png">
-  <h1> Sistema de Agendamentos da Etec</h1>
+  Sistema de Agendamentos da Etec
 </p>
 <br />
 
