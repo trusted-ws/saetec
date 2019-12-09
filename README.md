@@ -1,21 +1,21 @@
 <p align="center">
-  <img src="https://i.imgur.com/LFHBEun.png">
+  <img src="https://i.imgur.com/1afSx1r.png">
 </p>
 <br />
 
 ## Sistema de Agendamentos da Etec (Saetec)
 O Sistema de Agendamentos da Etec (Saetec) foi desenvolvido com o intuito de facilitar o agendamento de um recurso por parte do corpo docente.
-## TCC
-> Projeto componente de Trabalho de Conclusão de Curso (TCC) pela Etec Sylvio de Mattos Carvalho - Informática para Internet
+## Trabalho de Conclusão de Curso
+> Projeto componente de Trabalho de Conclusão de Curso (TCC) pela Etec Sylvio de Mattos Carvalho - Informática para Internet ETIM em 2019.
 ## Nota de Instalação
-Após a mover os arquivos necessários para a raíz do servidor, certifique-se que:
+Após a mover os arquivos necessários para a raíz do servidor, certifique-se de que:
 - O módulo rewrite está **devidamente habilitado** ou **descomentado** 
 > ***Arquivo:*** httpd.conf <br />
  `LoadModule rewrite_module modules/mod_rewrite.so`
 ## GitHub Project
 Este projeto se encontra no [GitHub](https://github.com/trusted-ws/saetec)
 ###### Projeto realizado por
-- Murilo Augusto de Arruda ***(Programmer/Back-end)***
+- Murilo Augusto de Arruda ***(Programmer/Full-stack developer)***
 - Igor Gabriel da Silva ***(Programmer/Front-end)***
 - Luiz Gustavo Pereira dos Santos ***(Tester/Reports)***
 
@@ -23,6 +23,7 @@ Este projeto se encontra no [GitHub](https://github.com/trusted-ws/saetec)
  * **14/08/2019** - **13/11/2019**
  ###### Finalização
  * Concluído em: **14/11/2019**
- * Ajuste final: **04/12/2019**
+ * Ajuste: **04/12/2019**
+ * Ajuste final (Mobile First & More) **09/12/2019**
 
  
