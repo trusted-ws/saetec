@@ -339,8 +339,7 @@
                 echo "<tr>";
                 echo "<td>" . $row['nome'] . "</td>";
                 echo "<td>" . ucwords(strftime('%d de %B de %Y às %H:%M (%A)', strtotime($row['reserva']))) . "</td>";
-                // echo "<td><a class=\"button alert cycle outline\" onclick=\"cancelarAgendamento(" . $row['id'] . ");\"><span class=\"mif-cross\"></span></a></td>";
-                echo '<td><a class="btn waves-effect waves-light" name="agendar" onclick="cancelarAgendamento(' . $row['id'] . ');">CANCELAR</a></td>';
+                echo '<td><a class="btn waves-effect waves-light red" name="agendar" onclick="cancelarAgendamento(' . $row['id'] . ');">CANCELAR</a></td>';
                 echo "</tr>";
             }
             echo "</table>";
