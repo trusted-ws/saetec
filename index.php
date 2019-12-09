@@ -5,11 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Saetec - Login</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<link href="https://fonts.googleapis.com/css?family=Blinker:400,700&display=swap" rel="stylesheet">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="redirection-mobile.js"></script>
+	<script>
+    SA.redirection_mobile({
+      mobile_url: "192.168.1.7/mobile/index.php", // Dominio de hospedagem
+      mobile_prefix: "https"
+    });
+  </script>
 
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -70,6 +77,7 @@
 				</div> <!-- card.// --><br>
 				<p class="text-center" style="font-size: 12px;"> Sistema de Agendamentos da Etec &copy 2019 </p>
 				<p class="text-center" style="font-size: 12px; color: #757575;"> Desenvolvido por Murilo Augusto, Igor Gabriel e Luiz Gustavo <br><span style="color: #363b59">E-mail para contato: </span> <a href="mailto:eth0.db0@gmail.com">eth0.db0@gmail.com</a></p>
+				<center><a href="/mobile/index.php"><i class="material-icons">computer forwardsmartphone</i></a></center>
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->
 

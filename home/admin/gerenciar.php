@@ -279,7 +279,7 @@
       echo "<td><a class=\"button alert cycle outline\" onclick=\"excluirUsuario(" . $row['id'] . ");\"><span class=\"mif-cross\"></span></a></td>";
       echo "</tr>";
     }
-    echo "</table>";
+    echo "</table><br><br><br>";
 
     mysqli_close($con);
 

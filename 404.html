@@ -12,7 +12,7 @@
             background-color: #007aff;
             color: #fff;
             font-size: 100%;
-            line-height: 1.5;
+            /* line-height: 1.5; */
             font-family: "Roboto", sans-serif;
         }
         
@@ -55,7 +55,7 @@
 <body class="">
     <h1>404</h1>
     <p>Oops! Algo errado.</p>
-    <a class="button" href="/index.php"><i class="icon-home"></i> É melhor voltar para a página inicial.</a>
+    <a class="button" href="index.php" onclick="window.history.go(-1); return false;"><i class="icon-home"></i> É melhor voltar para a página inicial</a>
 </body>
 
 </html>

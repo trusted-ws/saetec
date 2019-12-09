@@ -9,12 +9,7 @@
   <script href="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="redirection-mobile.js"></script>
-  <script>
-    SA.redirection_mobile({
-      mobile_url: "192.168.1.4/home/minhaconta_mobile.php", // Dominio de hospedagem
-      mobile_prefix: "https"
-    });
-  </script>
+
   <style>
     .color_blue {
       background-color: #d8dbe2;

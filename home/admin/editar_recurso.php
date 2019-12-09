@@ -103,7 +103,7 @@
 
           echo "<br>";
           echo "QUANTIDADE <input min=\"0\"type=\"number\" name=\"eQuantidade\" value=\"" . $row['quantidade'] . "\"><br>";
-          echo "DESCRIÇÃO<textarea data-role=\"textarea\" name=\"descricao\" rows=\"10\" cols=\"30\">" . $row['descricao'] . "</textarea><br>";
+          echo "DESCRIÇÃO<textarea data-role=\"textarea\" name=\"eDescricao\" rows=\"10\" cols=\"30\">" . $row['descricao'] . "</textarea><br>";
 
           echo '<input type="submit" class="button primary default rounded" value="Salvar"> ';
           echo '<a href="gerenciar_recursos.php" class="button secondary default rounded">Cancelar</a>';
