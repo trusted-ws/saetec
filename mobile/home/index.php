@@ -124,10 +124,7 @@
                 <p class="white-text"><br><br><span class="" style="font-size: 12px;"><span style="text-align: justify; text-justify: inter-word;">O Sistema de Agendamentos da Etec (SAETEC) foi desenvolvido para facilitar o agendamento de um recurso por parte do corpo docente. Este projeto é componente de um Trabalho de Conclusão de Curso realizado pelos alunos do curso de Informática para Internet do ETIM 3º B1 de 2019.</span><br><br><br><br><br>Desenvolvido por Murilo Augusto, Igor Gabriel e Luiz Gustavo<br>E-mail para contato: <a href="mailto:eth0.db0@gmail.com">eth0.db0@gmail.com</a></span><br><br>Sistema de Agendamentos da Etec &copy 2019</p>
             </div>
         </div>
-
     </div>
-
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
