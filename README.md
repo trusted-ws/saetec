@@ -28,4 +28,24 @@ Este projeto se encontra no [GitHub](https://github.com/trusted-ws/saetec)
  * Ajuste: **04/12/2019**
  * Ajuste final (Mobile First & More) **09/12/2019**
 
- 
+## Imagens
+
+<p align="center">
+  <img src="https://i.ibb.co/TB6t0TT/s1.png">
+</p>
+<br />
+
+<p align="center">
+  <img src="https://i.ibb.co/FmSLQrh/s2.png">
+</p>
+<br />
+
+<p align="center">
+  <img src="https://i.ibb.co/5KJzvNs/s3.png">
+</p>
+<br />
+
+<p align="center">
+  <img src="https://i.ibb.co/QbcJLbH/s5.png">
+</p>
+<br />
