@@ -13,7 +13,7 @@
 	<script src="redirection-mobile.js"></script>
 	<script>
     SA.redirection_mobile({
-      mobile_url: "192.168.1.7/mobile/index.php", // Dominio de hospedagem
+      mobile_url: "myserver.com/mobile/index.php",  
       mobile_prefix: "https"
     });
   </script>

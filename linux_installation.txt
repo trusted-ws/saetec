@@ -1,0 +1,60 @@
+
+Setting up Saetec's on Ubuntu (Linux Environment)
+
+The following symbols refers to a terminal command prompts:
+    $ - Refers to a simple bash/shell prompt
+    mysql> - Refers to the MySQL Shell
+
+1. Requirements:
+    I) Apache2 Webserver (tested on: 2.4.46-1ubuntu1)
+    II) PHP (tested on: 2:7.4+76)
+    III) MySQL Server (tested on: 8.0.23-0ubuntu0.20.10.1)
+    IV) Git client
+
+2. Setting up the server and deployment
+
+    I) Setting up the server and project:
+
+        a) Go to Apache2 document directory:
+            $ cd /var/www/html/
+
+            if you preferer delete all default file from Apache2 (index.html must be deleted before proceed):
+                $ rm -rf *
+
+        b) Clone the project from Github:
+            $ git clone https://github.com/trusted-ws/saetec
+
+        c) Move all files from 'saetec' directory to root of server:
+            $ cd saetec && mv * ../ && cd ../ && rm -rf saetec
+
+        d) Connect to MYSQL Shell as root:
+            $ sudo mysql -u root -p <your password goes here (empty for none)>
+
+        d) Setup the database:
+
+            1. Start the service:
+                $ sudo service mysql start
+
+            2. Setup the database:
+                mysql> source database.sql
+
+        e) Create new user for saetec:
+            mysql> CREATE USER 'saetec'@'%' IDENTIFIED BY <your password goes here>;
+
+            PS: Make sure that your password is secure.
+
+        f) Grant permissions for the database:
+            mysql> GRANT ALL PRIVILEGES ON saetec.* TO 'saetec'@'%';
+
+        g) Change the values of 'include/conn.php' to match with your user and password defined on step 'e':
+            $ vi includes/conn.php
+
+        h) Change the server address on file 'index.php' (line 16):
+            Replace 'myserver.com' to your server address.
+
+    II) Deployment:
+
+        a) Start the apache2 server:
+            $ sudo service apache2 start
+
+        ALL DONE!

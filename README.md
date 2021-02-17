@@ -7,11 +7,13 @@
 O Sistema de Agendamentos da Etec (Saetec) foi desenvolvido com o intuito de facilitar o agendamento de um recurso por parte do corpo docente.
 ## Trabalho de Conclusão de Curso
 > Projeto componente de Trabalho de Conclusão de Curso (TCC) pela Etec Sylvio de Mattos Carvalho - Informática para Internet ETIM em 2019.
-## Nota de Instalação
+## Instalação
 Após a mover os arquivos necessários para a raíz do servidor, certifique-se de que:
 - O módulo rewrite está **devidamente habilitado** ou **descomentado** 
 > ***Arquivo:*** httpd.conf <br />
  `LoadModule rewrite_module modules/mod_rewrite.so`
+## Instalação em servidores Linux
+- [Setting up Saetec on Linux Environment](https://github.com/trusted-ws/saetec/blob/master/linux_installation.txt)
 ## GitHub Project
 Este projeto se encontra no [GitHub](https://github.com/trusted-ws/saetec)
 ###### Projeto realizado por

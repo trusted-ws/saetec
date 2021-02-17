@@ -122,7 +122,15 @@
 		if ($total == 0) {
 			$query = "INSERT INTO `usuarios` ( `nome`, `username`, `password`, `tipo`, `ativo`, `pendente`) VALUES ( '" . $nome . "', '" . $login . "', '" . $senha . "', '2', '1', '1');";
 			if (mysqli_query($con, $query) or die("Erro no banco de dados!" . " [ " . mysqli_error($con) . " ] ")) {
-				header("location:sucesso.php");
+                #header("location:sucesso.php"); # Don't work with newest version of PHP.
+                # Using javascript to redirect instead:
+                echo "
+                <script language=\"javascript\">
+                    window.location.replace('sucesso.php');
+                </script>
+                ";
+
+
 			}
 		} else {
 			echo "
